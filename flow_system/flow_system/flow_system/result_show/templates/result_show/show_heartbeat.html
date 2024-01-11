@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/home/css/index.css">
+</head>
+  <body>
+      <!-- 头部 -->
+      <header>
+        <h1>心跳检测结果</h1>
+      </header>
+      <!-- 页面主体部分 -->
+      <section class="mainbox">
+        <div class="column">
+          <div class="panel pie">
+            <h2>通信协议分布</h2>
+            <div class="chart"></div>
+          </div>
+          <div class="panel scatter">
+            <h2>心跳周期分布</h2>
+            <div class="chart"></div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="panel table">
+            <h2>HTTP心跳序列</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Host</th>
+                  <th>Seqence Len</th>
+                  <th>Seqence Mean</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for e in http_seq%}
+                <tr>
+                  <td class="text-left" style="font-size:14px">{{e.domain}}</td>
+                  <td class="text-right" style="font-size:15px">{{e.sequence_len}}</td>
+                  <td class="text-right" style="font-size:15px">{{e.sequence_mean}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+          <div class="panel table">
+            <h2>HTTPS心跳序列</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>SNI</th>
+                  <th>Seqence Len</th>
+                  <th>Seqence Mean</th>
+                </tr>
+              </thead>
+              <tbody>
+                {%for e in https_seq%}
+                <tr>
+                  <td class="text-left" style="font-size:14px">{{e.domain}}</td>
+                  <td class="text-right" style="font-size:15px">{{e.sequence_len}}</td>
+                  <td class="text-right" style="font-size:15px">{{e.sequence_mean}}</td>
+                </tr>
+                {%endfor%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <script src="/static/echarts.min.js"></script>
+      <script src="/static/home/js/index.js"></script>
+    </body>
+
+</html>

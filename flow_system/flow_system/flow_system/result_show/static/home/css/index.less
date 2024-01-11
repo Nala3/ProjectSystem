@@ -1,0 +1,65 @@
+// 初始化
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.el-container {
+    margin: 0, auto;
+}
+header {
+    height: 100px;
+    h1 {
+        font-size: 38px;
+        text-align: center;
+        line-height: 80px;
+    }
+}
+.mainbox {
+    display: flex;
+    margin: 0 auto;
+    padding: 80px 80px 0;
+    .column {
+        flex: 2;
+        &:nth-child(2) {
+            flex: 3;
+        }
+    }
+    .panel {
+        height: 400px;
+        border: 1px solid rgba(25, 186, 139, 0.17);
+        padding: 0 15px;
+        position: relative;
+    }
+    .chart {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        position: relative;
+    }
+    h2 {
+        text-align: center;
+        line-height: 2;
+    }
+    table {
+        border-collapse: collapse;
+        margin: 20px auto;
+        padding: 10px 0;
+        width: 80%;
+    }
+    th {
+        background-color: #9ca8b8;
+        color: #fff;
+        font-weight: bold;
+        line-height: 2;
+    }
+    tr {
+        line-height: 2;
+        &:nth-child(even) {
+            background-color: #c1cbd7;
+        }
+    }
+    tr:hover {
+        background-color: #ddd;
+    }
+}
